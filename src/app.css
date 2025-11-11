@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-indor-brown: #806c62;
+  --color-indor-brown-light: #c6baaa;
+  --color-indor-black: #2c2c2c;
+  --color-indor-orange: #ef7926;
+  --color-orange-clair: #ee7927;
+  --color-orange-vivid: #f48a34;
+  --color-orange-dense: #ff6600;
+  --color-orange-pale: #f0b256;
+  --color-orange-light: #f0aa50;
+  --color-green-vivid: #86ef48;
+  --color-green-dense: #6bbe38;
+  --color-blue-vivid: #2dadff;
+  --color-blue-dense: #1865ff;
+  --font-kholic: "Kholic";
+  --font-Nord: "Nord";
+  --font-Escape: "EscapeSignature";
+  --font-Lattery: "Lattery"
+}
+
+@font-face {
+  font-family: 'Kholic';
+  src: url('/font/kholic.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lattery';
+  src: url('/font/lattery.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EscapeSignature';
+  src: url('/font/EscapeSignature.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nord';
+  src: url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.ttf') format('truetype'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.woff2') format('woff2'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nord';
+  src: url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Light.ttf') format('truetype'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Light.woff2') format('woff2'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nord';
+  src: url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.ttf') format('truetype'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.woff2') format('woff2'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nord';
+  src: url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Medium.ttf') format('truetype'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Medium.woff2') format('woff2'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Medium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nord';
+  src: url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Bold.ttf') format('truetype'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Bold.woff2') format('woff2'),
+       url('/font/NORD/TTF and Web Fonts/Web Fonts/Nord-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+.baskervville {
+  font-family: "Baskervville", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,1 @@
+<span class="font-Lattery text-6xl/8">Buen vicio</span>
