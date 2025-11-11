@@ -223,5 +223,5 @@
 	<meta name="twitter:image" content="https://indorclub.com/image/Indor1.jpeg" />
 
 	<!-- Favicon -->
-	<link rel="icon" href="/favicon.ico" />
+	<link rel="icon" href="/icon.jpg" />
 </svelte:head>
