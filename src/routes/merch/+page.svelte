@@ -103,7 +103,7 @@
 <Footer />
 
 <svelte:head>
-	<title>Nuestra Mercancía | Indor Club</title>
+	<title>Nuestra Merch | Indor Club</title>
 	<meta
 		name="description"
 		content="

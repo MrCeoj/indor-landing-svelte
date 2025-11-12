@@ -24,8 +24,6 @@ const HOME_IMAGES_QUERY = gql`
 	}
 `;
 
-export const prerender = true;
-
 export const load: PageServerLoad = async () => {
 	const { data } = await client.query(HOME_IMAGES_QUERY, {}).toPromise();
 

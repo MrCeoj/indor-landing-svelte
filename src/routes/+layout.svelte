@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Client, setContextClient, cacheExchange, fetchExchange } from '@urql/svelte';
-	import favicon from '$lib/assets/icon.jpg';
+	import favicon_dark from '$lib/assets/logo_orange.svg';
+	import favicon_light from '$lib/assets/logo_black.svg';
 	import '../app.css';
 
 	let { children } = $props();
@@ -19,7 +20,8 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={favicon_dark} media="(prefers-color-scheme: dark)"/>
+	<link rel="icon" href={favicon_light} media="(prefers-color-scheme: light)"/>
 </svelte:head>
 
 <div

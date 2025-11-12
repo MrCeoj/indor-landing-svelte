@@ -75,8 +75,6 @@ async function getServices() {
 	return services;
 }
 
-export const prerender = true;
-
 export const load: PageServerLoad = async () => {
 	const services = await getServices();
 
