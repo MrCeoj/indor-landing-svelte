@@ -5,7 +5,7 @@ import { STRAPI_GRAPHQL_ENDPOINT, STRAPI_TOKEN, STRAPI_ENDPOINT } from '$env/sta
 
 const client = new Client({
 	url: STRAPI_GRAPHQL_ENDPOINT,
-	exchanges: [cacheExchange, fetchExchange],
+	exchanges: [fetchExchange],
 	fetchOptions: {
 		headers: {
 			'Content-Type': 'application/json',
@@ -19,26 +19,28 @@ const GET_RESERVATION_PRICES = gql`
 		precioCanchas {
 			dias
 			periodos_precios
+			orden
 		}
 		preciosClases {
 			periodo
 			horas
 			precio
+			orden
 		}
 	}
 `;
 
 async function getPrecios() {
-    const {data} = await client.query(GET_RESERVATION_PRICES, {}).toPromise();
+	const { data } = await client.query(GET_RESERVATION_PRICES, {}).toPromise();
 
-    return data
+	return data;
 }
 
 export const load: PageServerLoad = async () => {
-    const data = await getPrecios()
-    
-    const preciosCanchas = data.precioCanchas
-    const preciosClases = data.preciosClases
+	const data = await getPrecios();
 
-    return { preciosCanchas, preciosClases }
-}
+	const preciosCanchas = data.precioCanchas.sort((a: any, b: any) => a.orden - b.orden);
+	const preciosClases = data.preciosClases.sort((a: any, b: any) => a.orden - b.orden);
+
+	return { preciosCanchas, preciosClases };
+};

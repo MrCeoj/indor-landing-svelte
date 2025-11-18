@@ -540,6 +540,4 @@
 	/>
 	<meta name="twitter:image" content="https://indorclub.com/image/Indor2.jpeg" />
 
-	<!-- Favicon -->
-	<link rel="icon" href="/icon.jpg" />
 </svelte:head>

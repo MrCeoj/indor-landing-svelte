@@ -1,17 +1,60 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { invalidate } from '$app/navigation';
+	import { fade } from 'svelte/transition';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { Sparkles, Check } from 'lucide-svelte';
-	import { fade } from 'svelte/transition';
 	import IndorLogoText from '$lib/components/IndorLogoText.svelte';
 	import type { PageData } from '../$types';
 
-	let { data } = $props<{data: PageData}>();
+	let { data } = $props<{ data: PageData }>();
+	const merchItems = $derived(data.merchItems);
 
-	const merchItems = $derived(data.merchItems)
-	$effect(() => {
-		console.log(data)
-	})
+	let scrollContainer: HTMLDivElement;
+	let autoScrollInterval: number;
+	let isPaused = $state(false);
+
+	const LOOP_MULTIPLIER = 6;
+	const infiniteMerchItems = $derived(Array(LOOP_MULTIPLIER).fill(merchItems).flat());
+
+	onMount(() => {
+		startAutoScroll();
+		return () => clearInterval(autoScrollInterval);
+	});
+
+	function startAutoScroll() {
+		autoScrollInterval = setInterval(() => {
+			if (!isPaused && scrollContainer) {
+				const scrollAmount = 1;
+				scrollContainer.scrollLeft += scrollAmount;
+
+				const scrollWidthHalf = scrollContainer.scrollWidth / 2;
+				
+				if (scrollContainer.scrollLeft >= scrollWidthHalf) {
+					scrollContainer.scrollLeft = 0;
+				}
+
+				if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+					scrollContainer.scrollLeft = 0;
+				}
+			}
+		}, 30) as unknown as number;
+	}
+
+	function pauseScroll() {
+		isPaused = true;
+	}
+
+	function resumeScroll() {
+		isPaused = false;
+	}
+
+	onMount(() => {
+		startAutoScroll();
+		invalidate('/merch');
+		return () => clearInterval(autoScrollInterval);
+	});
 </script>
 
 <Navbar />
@@ -44,31 +87,40 @@
 	</div>
 </section>
 
-<!--Product Grid-->
-<section id="productos" class="relative px-4 pb-20">
+<section in:fade id="productos" class="relative w-full pb-20">
 	<div class="absolute top-1/2 left-10 h-48 w-48 rounded-full bg-orange-500/10 blur-3xl"></div>
 	<div class="relative z-10 mx-auto max-w-6xl">
 		<h2 class="mb-10 text-center font-Nord text-3xl font-bold text-white lg:text-4xl">
 			Nuestros Productos
 		</h2>
-
-		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-			{#each merchItems as item (item.titulo)}
+	</div>
+	<div class="relative w-full overflow-hidden">
+		<div
+			bind:this={scrollContainer}
+			onmouseenter={pauseScroll}
+			onmouseleave={resumeScroll}
+			ontouchstart={pauseScroll}
+			ontouchend={resumeScroll}
+			role="banner"
+			class="flex w-full gap-6 overflow-x-auto scroll-smooth p-8"
+			style="scrollbar-width: none; -ms-overflow-style: none;"
+		>
+			{#each infiniteMerchItems as item (item.titulo + Math.random())}
 				<div
-					class="group overflow-hidden rounded-3xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black shadow-xl shadow-orange-600/20 transition-transform duration-300 hover:scale-105"
-					in:fade={{ duration: 400 }}
+					class=" group relative max-w-min min-w-[80%] overflow-hidden rounded-3xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black shadow-xl shadow-orange-600/20 transition-transform duration-300 hover:scale-105 sm:min-w-[35%] md:min-w-[25%]"
 				>
 					<div class="aspect-square overflow-hidden">
 						<img
+							loading="lazy"
 							src={item.imagenes[0]}
 							alt={item.titulo}
 							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
 						/>
 					</div>
-					<div class="flex-col space-y-4 p-6">
+					<div class="flex-col space-y-4 p-6 pb-12">
 						<h3 class="text-2xl font-semibold text-white">{item.titulo}</h3>
-						<p class="text-sm text-gray-300">{item.richtext.descripcion}</p>
-						<ul class="space-y-1 text-sm text-gray-400">
+						<p class="text-sm text-gray-300">{item.richtext.description}</p>
+						<ul class="md:max-w-[80%] space-y-1 text-sm text-wrap text-gray-400">
 							{#each item.richtext.features as feature}
 								<li class="flex items-center gap-2">
 									<Check size={14} class="text-orange-400" />
@@ -76,12 +128,15 @@
 								</li>
 							{/each}
 						</ul>
-						<div class="w-full text-right">
+						<div class="absolute right-6 bottom-4 w-full text-right">
 							<span class="text-xl font-bold text-orange-400">${item.precio} MXN</span>
 						</div>
 					</div>
 				</div>
 			{/each}
+			<div
+				class="pointer-events-none absolute inset-y-0 left-0 w-full bg-linear-[90deg,#242424,transparent_15%,transparent_85%,#242424]"
+			></div>
 		</div>
 	</div>
 </section>
@@ -111,3 +166,9 @@
 		para demostrar tu amor por Indor Club"
 	/>
 </svelte:head>
+
+<style>
+	div::-webkit-scrollbar {
+		display: none;
+	}
+</style>

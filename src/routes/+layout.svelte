@@ -22,6 +22,8 @@
 <svelte:head>
 	<link rel="icon" href={favicon_dark} media="(prefers-color-scheme: dark)"/>
 	<link rel="icon" href={favicon_light} media="(prefers-color-scheme: light)"/>
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+
 </svelte:head>
 
 <div

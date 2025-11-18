@@ -3,7 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import IndorLogoText from '$lib/components/IndorLogoText.svelte';
 	import { fade, scale } from 'svelte/transition';
-	import { Users, Heart, Trophy, Star, Target, Handshake } from 'lucide-svelte';
+	import { Medal, Users, ShieldHalf, Handshake } from 'lucide-svelte';
 	import { goto } from '$app/navigation';
 </script>
 
@@ -11,7 +11,7 @@
 	<Navbar />
 
 	<!-- Hero -->
-	<section class="relative overflow-hidden px-4 pt-32 pb-20 border-y border-y-amber-500/10">
+	<section class="relative overflow-hidden border-y border-y-amber-500/10 px-4 pt-32 pb-20">
 		<div class="absolute top-0 left-1/3 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"></div>
 		<div class="absolute right-1/3 bottom-0 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl"></div>
 
@@ -77,15 +77,16 @@
 			<div class="space-y-6">
 				<h2 class="text-3xl font-bold">Misión & Visión</h2>
 				<p class="leading-relaxed text-gray-300">
-					Nuestra <span class="font-semibold text-orange-400">misión</span> es ofrecer un espacio moderno
-					y dinámico donde las personas disfruten del deporte, la buena comida y la convivencia en un
-					ambiente único.
+					Nuestra <span class="font-semibold text-orange-400">misión</span> es brindar experiencias inolvidables
+					a nuestros clientes a través de una combinación única de entretenimiento, gastronomía, bar
+					y pádel. Nos comprometemos a ofrecer un ambiente excepcional con las mejores instalaciones,
+					un servicio de calidad y una oferta diversa que promueva la diversión, el bienestar y la convivencia.
 				</p>
 				<p class="leading-relaxed text-gray-300">
 					Nuestra <span class="font-semibold text-amber-400">visión</span> es consolidarnos como el club
-					social y deportivo líder en la región, reconocido por su calidad, innovación y compromiso con
-					la comunidad. No sólo por el deporte, sino como un espacio donde socializar y disfrutar de las
-					amenidades de la comida y el café.
+					favorito por su dedicación a la excelencia en instalaciones, productos y servicios, promoviendo
+					un estilo de vida activo y socialmente enriquecedor. Queremos crear un entorno donde se disfrute
+					una experiencia única, cálida y memorable en cada visita.
 				</p>
 			</div>
 		</div>
@@ -95,54 +96,37 @@
 	<section class="relative px-4 py-20 text-center">
 		<h2 class="mb-10 text-3xl font-bold">Nuestros Valores</h2>
 
-		<div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			<div
+				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
+			>
+				<Medal size={40} class="mx-auto mb-4 text-orange-400" />
+				<h3 class="mb-2 text-xl font-semibold">Excelencia en el servicio</h3>
+				<p class="text-gray-400">
+					Nuestra prioridad es el cliente y su experiencia dentro del club. Cada detalle es
+					importante.
+				</p>
+			</div>
+
+			<div
+				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
+			>
+				<ShieldHalf size={40} class="mx-auto mb-4 text-orange-400" />
+				<h3 class="mb-2 text-xl font-semibold">Todos para uno</h3>
+				<p class="text-gray-400">
+					Todos conocemos los procesos y colaboramos en equipo en todo momento para lograr el
+					objetivo.
+				</p>
+			</div>
+
 			<div
 				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
 			>
 				<Users size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Comunidad</h3>
+				<h3 class="mb-2 text-xl font-semibold">Calidez Social</h3>
 				<p class="text-gray-400">
-					Fomentamos la conexión, el respeto y la colaboración entre todos los miembros.
-				</p>
-			</div>
-
-			<div
-				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
-			>
-				<Trophy size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Excelencia</h3>
-				<p class="text-gray-400">
-					Buscamos la perfección en cada detalle, desde nuestras canchas hasta nuestro servicio.
-				</p>
-			</div>
-
-			<div
-				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
-			>
-				<Heart size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Pasión</h3>
-				<p class="text-gray-400">
-					Nos mueve el amor por el deporte, la gastronomía y las experiencias que inspiran.
-				</p>
-			</div>
-
-			<div
-				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
-			>
-				<Star size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Innovación</h3>
-				<p class="text-gray-400">
-					Adoptamos nuevas ideas y tecnologías para brindar experiencias únicas.
-				</p>
-			</div>
-
-			<div
-				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
-			>
-				<Target size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Compromiso</h3>
-				<p class="text-gray-400">
-					Trabajamos día a día para ofrecer la mejor experiencia a nuestros socios y visitantes.
+					Nuestra razón de ser nace de la calidez hacia el otro, somos un club enfocado en la
+					interacción social con empatía y dedicación hacia los demás.
 				</p>
 			</div>
 
@@ -150,16 +134,16 @@
 				class="group rounded-2xl border border-orange-500/20 bg-linear-to-br from-orange-900/20 to-black p-8 shadow-xl transition hover:scale-105 hover:shadow-orange-600/30"
 			>
 				<Handshake size={40} class="mx-auto mb-4 text-orange-400" />
-				<h3 class="mb-2 text-xl font-semibold">Hospitalidad</h3>
+				<h3 class="mb-2 text-xl font-semibold">Comprometidos con el resultados</h3>
 				<p class="text-gray-400">
-					Hacemos que todos se sientan bienvenidos, valorados y parte de la familia Indor.
+					Hacemos que las cosas sucedan, somos comprometidos y responsables con el resultado final.
 				</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- CTA -->
-	<section class="relative overflow-hidden px-4 py-32 text-center border-t border-t-amber-500/10">
+	<section class="relative px-4 py-32 text-center">
 		<div
 			class="absolute inset-0 bg-linear-to-b from-transparent via-orange-600/20 to-transparent"
 		></div>
@@ -168,13 +152,13 @@
 		></div>
 
 		<div class="relative z-10 mx-auto max-w-4xl">
-			<h2 class="mb-6 text-4xl font-bold inline-flex flex-wrap text-center justify-center gap-4">
+			<h2 class="mb-6 inline-flex flex-wrap justify-center gap-4 text-center text-4xl font-bold">
 				¿Listo para unirte a la experiencia
-				<span class="text-orange-400 inline-flex gap-2">
+				<span class="inline-flex gap-2 text-orange-400">
 					<IndorLogoText size="large" />?
 				</span>
 			</h2>
-			<p class="mb-8 text-gray-300">
+			<p class="mb-8 text-lg text-gray-300">
 				Vive el deporte, la convivencia y el estilo en un mismo lugar.
 			</p>
 			<button
@@ -222,6 +206,4 @@
 	/>
 	<meta name="twitter:image" content="https://indorclub.com/image/Indor1.jpeg" />
 
-	<!-- Favicon -->
-	<link rel="icon" href="/icon.jpg" />
 </svelte:head>

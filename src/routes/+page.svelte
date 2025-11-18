@@ -4,15 +4,19 @@
 	import Services from '$lib/components/Services.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import type { PageData } from './$types.d.ts';
+	import EventsCarousel from '$lib/components/EventsCarousel.svelte';
 
 	let { data } = $props<{ data: PageData }>();
-	let images = $derived(data.images)
-
+	let images = $derived(data.images);
+	let events = $derived(data.events);
 </script>
 
 <div class="min-h-screen bg-indor-black text-white">
 	<Navbar />
-	<Hero images={images} />
+	<Hero {images} />
+	{#if events.length > 0}
+		<EventsCarousel {events} />
+	{/if}
 	<Services />
 	<Footer />
 </div>
@@ -51,7 +55,4 @@
 	/>
 	<meta name="twitter:image" content="https://indorclub.com/image/Indor1.jpeg" />
 
-	<!-- Favicon -->
-	<link rel="icon" href="/icon.jpg" />
 </svelte:head>
-

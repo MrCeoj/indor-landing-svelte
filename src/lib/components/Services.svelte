@@ -33,9 +33,9 @@
 		},
 		{
 			icon: Tv,
-			title: 'Sportsbar',
+			title: 'Sports Bar',
 			description:
-				'Una pantalla gigante con transmisiones deportivas internacionales en vivo y en alta definición.',
+				'Una pantalla gigante con transmisiones deportivas internacionales en vivo, con barra de mixología deluxe.',
 			link: '/servicios/#streaming',
 			linkText: 'Explorar más →',
 			delay: 500

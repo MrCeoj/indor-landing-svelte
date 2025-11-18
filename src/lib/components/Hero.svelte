@@ -46,7 +46,7 @@
 				<div
 					class="inline-block rounded-full border border-orange-500/30 bg-orange-600/20 px-6 py-3 text-sm font-bold tracking-wide text-orange-400 uppercase"
 				>
-					⚡ Social Club & Sports Bar
+					🎾 Social Club & Sports Bar
 				</div>
 
 				<h1

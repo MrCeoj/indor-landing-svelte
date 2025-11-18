@@ -9,9 +9,10 @@ const client = new Client({
 	fetchOptions: {
 		headers: {
 			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${STRAPI_TOKEN}`
+			Authorization: `Bearer ${STRAPI_TOKEN}`
 		}
-	}
+	},
+	requestPolicy: 'network-only'
 });
 
 const GET_SERVICES = gql`
@@ -31,6 +32,7 @@ const GET_SERVICES = gql`
 		}
 	}
 `;
+
 
 function parseDescription(blocks: any[]): string[] {
 	if (!blocks || !Array.isArray(blocks)) return [];

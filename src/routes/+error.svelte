@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
+	import IndorLogoText from '$lib/components/IndorLogoText.svelte';
 	import { scale, fade } from 'svelte/transition';
 	export let error;
 	export let status;
@@ -8,14 +9,7 @@
 <div class="flex min-h-screen flex-col items-center justify-center bg-indor-black text-white text-center px-4">
      <Navbar />
 	<a in:scale={{ duration: 400 }} href="/" class="flex flex-col items-center space-y-1 mb-6">
-		<span class="flex flex-col items-end">
-			<span class="font-kholic text-8xl text-indor-orange leading-none">
-				Ind
-				<span class="-mx-6.5 inline-block origin-center rotate-75">o</span>
-				r
-			</span>
-			<span class="font-Nord text-2xl font-bold tracking-wide -mt-5">CLUB</span>
-		</span>
+		<IndorLogoText size="huge"/>
 	</a>
 
 	<h1 in:fade={{ delay: 200 }} class="text-5xl font-bold text-indor-orange mb-2">

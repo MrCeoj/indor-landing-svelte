@@ -18,7 +18,7 @@
 		{ icon: Users, number: '500+', label: 'Jugadores activos' },
 		{ icon: Trophy, number: '8', label: 'Canchas premium' },
 		{ icon: UtensilsCrossed, number: 'Bebidas', label: 'Y alimentos' },
-		{ icon: Clock, number: '18hrs', label: 'Horario diario' }
+		{ icon: Clock, number: '18hrs', label: 'Servicio diario' }
 	];
 </script>
 
@@ -292,6 +292,4 @@
 	/>
 	<meta name="twitter:image" content="https://indorclub.com/image/Banner2.jpeg" />
 
-	<!-- Favicon -->
-	<link rel="icon" href="/icon.jpg" />
 </svelte:head>

@@ -11,7 +11,8 @@ const client = new Client({
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${STRAPI_TOKEN}`
 		}
-	}
+	},
+	requestPolicy: 'network-only'
 });
 
 const GET_MERCH_ITEMS = gql`
@@ -59,7 +60,7 @@ async function getMerch() {
         precio: s.precio,
         imagenes: s.imagenes?.map((img: any) => STRAPI_ENDPOINT + img.url) ?? [],
     }))
-
+	
     return merch
 }
 

@@ -5,9 +5,9 @@
 
 {#if size == 'base'}
 	<span class="flex flex-col items-end">
-		<span class="-mb-3 font-kholic text-4xl text-indor-orange inline-flex">
+		<span class="-mb-3 font-kholic text-4xl text-indor-orange inline-flex items-baseline">
 			Ind
-			<img src={logo_orange} width={20} height={20} alt="o"/>
+			<img src={logo_orange} width={19} height={19} alt="o"/>
 			r
 		</span>
 		<span class="font-Nord text-sm font-bold text-white">CLUB</span>
@@ -16,7 +16,7 @@
 	<span class="flex flex-col items-end">
 		<span class="-mb-3 font-kholic text-3xl text-indor-orange inline-flex items-baseline">
 			Ind
-			<img src={logo_orange} width={16} height={19} alt="o"/>
+			<img src={logo_orange} width={16} height={16} alt="o"/>
 			r
 		</span>
 		<span class="font-Nord text-xs font-bold text-white">CLUB</span>
